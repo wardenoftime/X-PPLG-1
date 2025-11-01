@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X PPLG 1 - SMKN 1 SLAWI</title>
+  <link rel="stylesheet" href="web.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+   function filterStudents() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.student-card');
+    cards.forEach((card) => {
+     const name = card.querySelector('.student-name').textContent.toLowerCase();
+     if (name.includes(input)) {
+      card.style.display = '';
+     } else {
+      card.style.display = 'none';
+     }
+    });
+   }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
+     footer {
+      position: relative;
+      background-color: #1b2530;
+      color: white;
+      overflow: hidden;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 60px 0 120px 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .footer-section {
+      max-width: 300px;
+    }
+
+    .footer-section h3 {
+      color: #f8f9fa;
+      margin-bottom: 15px;
+    }
+
+    .footer-section p {
+      color: #cfd8dc;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-line {
+      width: 85%;
+      margin: 20px auto;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 13px;
+      color: #b0bec5;
+      padding-bottom: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Waves di bawah footer */
+    .footer-waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      line-height: 0;
+       transform: rotate(180deg);
+      z-index: 1;
+    }
+
+    .footer-waves svg {
+      display: block;
+      width: 100%;
+      height: 660px;
+    }
+
+    .siswa{
+      position: absolute;
+      left: 13px;
+      top: 13px;
+      background: #ffff;
+      padding: 0px 5px;
+      font-size: 12px;
+      transition:
+      transform 0.3s ease, color o.3s ease;
+    }
+
+    input:focus + .siswa {
+      transform: translateY(-20px);
+      color: #0051ff;
+    }
+
+    input:focus {
+      border-color: #0051ff;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), url('') center/cover;
+      background-image: url(gambar3.jpeg);
+      background-size: cover;
+      background-position: center 10%;
+      background-repeat: no-repeat;
+      height: 120vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgb(255, 255, 255);
+
+    }
+
+    .hero p {
+      top: 50%;
+      left: 50%;
+    }
+
+
+    .section {
+      padding: 80px 0;
+      background: white;
+      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .student-card {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #667eea;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .guru {
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar fixed top-0 w-full z-50 py-4">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold text-purple-600">X PPLG 1</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-purple-600 transition">Home</a>
+          <a href="#organisasi" class="text-gray-700 hover:text-purple-600 transition">Teacher</a>
+          <a href="#data" class="text-gray-700 hover:text-purple-600 transition">Students</a>
+          <a href="#gallery" class="text-gray-700 hover:text-purple-600 transition">Gallery</a>
+          <a href="#developer" class="text-gray-700 hover:text-purple-600 transition">Developer</a>
+        </div>
+        <div class="md:hidden">
+          <button class="text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Pendahuluan Section -->
+  <section id="home" class="hero">
+    <div class="container mx-auto px-6 text-center">
+      
+    </div>
+  </section>
+  <section id="home" class="web">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp">X PPLG 1</h1>
+    <p class="text-xl mb-8sS animate-fadeInUp">SMKN 1 SLAWI - Pengembangan Perangkat Lunak dan Gim<br><br> Selamat datang di website resmi kelas X PPLG 1. Kami adalah generasi masa depan yang siap menghadapi tantangan
+      dunia teknologi dengan semangat belajar yang tinggi dan kreativitas tanpa batas.</p>
+    <p class="text10-xl md:text-2xl mb-8sS animate-fadeInUp"></p><br>
+    <p class="text-xl mb-8 text-blue-100 animate-fadeInUp">
+     </p>
+    <div class="animate-fadeInUp">
+    </div>
+  </section>
+
+  <!-- Guru -->
+  <section id="organisasi" class="section justify-center">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Guru Jurusan</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!--Mohammad Biqih Arzaq-->
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+            <img
+              src="PHOTO X PPLG 1/Pak biqih.jpeg"
+              alt="Pak Biqih" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Mohammad Biqih Arzaq</h3>
+          <p class="text-gray-600 mb-2">24 Febuari 1991</p>
+          <p class="text-sm text-gray-500">Sumbaga</p>
+        </div>
+
+        <!-- Anung Anindhita Aufa -->
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+            <img
+              src="PHOTO X PPLG 1/bu anin 1.jpeg"
+              alt="bu anin"
+              class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Anung Anindhita Aufa</h3>
+          <p class="text-gray-600 mb-2">1 Januari 1994</p>
+          <p class="text-sm text-gray-500">Harjosari Lor</p>
+        </div>
+        
+         <!-- Wahidin -->
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+            <img
+              src="PHOTO X PPLG 1/Pak Wahidin.png"
+              alt="Pak wahidin"
+              class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Wahidin</h3>
+          <p class="text-gray-600 mb-2">28 Mei 1984</p>
+          <p class="text-sm text-gray-500">Tegalandong</p>
+        </div>
+
+        <!-- Nazarudin Zen -->
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+            <img
+              src="PHOTO X PPLG 1/Pak zain.jpeg"
+              alt="Pak Zain"
+              class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Nazarudin Zen</h3>
+          <p class="text-gray-600 mb-2">27 Januari 1986</p>
+          <p class="text-sm text-gray-500">Pesarean</p>
+        </div>
+        
+        <!-- Novi Hidayati -->
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+            <img
+              src="PHOTO X PPLG 1/Bu Novi.jpeg"
+              alt="Bu Novi"
+              class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Novi Hidayati</h3>
+          <p class="text-gray-600 mb-2">13 November 1990</p>
+          <p class="text-sm text-gray-500">Pepedan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data siswa -->
+  <section id="data" class="section bg-gray-50">
+    <div class="container mx-auto px-6">
+      <body class="bg-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+          <div class="text-center mb-6">
+            <h1 class="text-3xl font-semibold text-slate-900">
+              Data Murid Kelas X PPLG 1
+            </h1>
+            <br>
+             
+            <p class="text-sm text-slate-800 mt-1">
+              36 Murid berbakat dengan passion dalam teknologi dan pengembangan perangkat lunak
+            </p>
+            <div class="mt-4">
+              <input aria-label="Search students by name"
+                class="w-full max-w-md mx-auto rounded-full border border-blue-400 px-4 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                id="searchInput" oninput="filterStudents()" 
+                placeholder="Cari siswa berdasarkan nama, NISN, hobi, atau skill…" type="text" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-slate-200 bg-w rounded-lg shadow p-4 student-card">
+              <img alt="Group photo of students in uniform posing outside a building with purple wall"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/1.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Abdurrahman Mas Said
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3090935654
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #01
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="">
+                    23 Oktober 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Tegalandong
+                </li>
+              </ul>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing light grey blazer and white shirt with light pink hijab"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/2.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Adisti Arbaia
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0087040883
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #02
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 3 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    21 November 2008
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Karang Jambu
+                </li>
+              </ul>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling man wearing white shirt and grey jacket"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/3.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Alin Zahratul Muzakiya
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108143058
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #03
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Nu Al Fattah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    2 Febuari 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Pecabean
+                </li>
+              </ul>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/4.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Amanda Sinta Amelia
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0103444094
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #04
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 2 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    11 Mei 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Penusupan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/5.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Aqilatus Salma
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108286439
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #05
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    11 Mei 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Pedagangan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/6.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Citra Aisyah
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3109627996
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #06
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Kedungbanteng
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    29 Desember 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kebadingan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/7.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Daffa Adliy Risqian
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0103985957
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #07
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    1 Juni 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kabunan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/8.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Dilly Putro Ramadhani
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0082345472
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #08
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Muhammadiyah Slawi
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    29 September 2008
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kudaile
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/9.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Eka Jihan Fakhiroh
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0101359413
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #09
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Lebaksiu
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    25 Juni 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kalibakung
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/10.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Erinna Fauzia
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0099537708
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #10
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 2 Balapulang
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    12 Oktober 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Jembayat
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/11.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Estu Cahayatama
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0105240985
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #11
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Dukuhwaru
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    22 Mei 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Dukuhdamu
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/12.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Fikri Ilham Fitrahul Putra
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0095447386
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #12
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 3 Slawi
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    14 Desember 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kendalserut
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/13.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Gilang Arya Kumala
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3102410792
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #13
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 2 Adiwerna
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    14 April 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Bukakpacing
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/14.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Indah Suzanna Oktaviani
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0098071718
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #14
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    26 Oktober 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Curug
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/15.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Kaneesha Adellia
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108617568
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #15
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    27 Maret 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kalisapu
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 16 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/16.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Kenzo Ramadhan
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0105468174
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #16
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 2 Lebaksiu
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    3 Agustus 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kambangan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 17 -->
+            <div class="bg-slate-200 ounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/17.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Lukmanul Hakim
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0097561974
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #17
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Lebaksiu
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    19 September 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Lebaksiu
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 18 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/18.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Lulu Kinasih
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0104562461
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #18
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 5 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    30 Januari 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Talok
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 19 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/19.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    M. Zidni Ilman Nafian
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                  NISN: 0091681326
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #19
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                   SMP Negeri 1 Adiwerna
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    2 Agustus 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Tembok Luwung
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 20 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/20.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Marsa Raqila Zahir
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0094764033
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #20
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Muhammadiyah Slawi
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    27 Oktober 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Procot
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 21 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/21.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Mohamad Tegar Rivaldi
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108997037
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #21
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    2 Agustus 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kedung Banteng
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 22 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/22.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Mohammad Ali Wirranto
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0102414798
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #22
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    29 Maret 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Bogares
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 23 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/23.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    <a href="easter_egg.html">Muhamad Iqbal Faiz</a>
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0101426948
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #23
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Kedungbanteng
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    23 Oktober 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kedung Banteng
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 24 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/24.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Muhammad Fakhri Adi Wiyogo
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108540157
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #24
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    17 Maret 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Gumayun
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 25 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/25.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Musbikhah Adawiyah
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0109158793
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #25
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Terpadu Darul Qudwah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    20 Desember 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Pamiritan
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 26 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/26.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Nafilatun Amalia Solikha
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0109940494
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #26
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 2 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    29 April 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Pener
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 27 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/27.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Orient Dzikri Arraja
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0102258905
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #27
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    8 September 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Tonggara
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 28 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/28.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Rayi Sacha
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108500534
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #28
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    16 April 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Selapur
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 29 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/29.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Robbi Hasby Affiyat
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0104609901
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #29
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 3 Slawi
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    5 Agustus 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Procot
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 30 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/30.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Siti Nurkholifah
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0108167267
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #30
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Lebaksiu
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    19 Juni 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kalibakung
+                </li>
+              </ul>
+            </div>
+            <!-- Card 31 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/31.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Siti Nuthfah Ramadhoni
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0101103643
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #31
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Pangkah
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    28 Agustus 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Talok
+                </li>
+              </ul>
+            </div>
+            <!-- Card 32 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/32.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Sulthanul Az-Zahidin Basyira
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3104192423
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #32
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP IT Luqman Al Hakim Slawi
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    27 Mei 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Procot
+                </li>
+              </ul>
+            </div>
+            <!-- Card 33 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/33.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Syafiq Ahmad Asyafa
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3102348209
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #33
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  MTs Negeri 2 Tegal
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    16 April 2010
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Palem Asri
+                </li>
+              </ul>
+            </div>
+            <!-- Card 34 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/34.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Viyana Zanesa Primanda
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 0096446157
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #34
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                   SMP Negeri 3 Songgom
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    10 September 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Songgom Lor
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 35 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/35.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Wildan Akmal Yaqzhan
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3098761343
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #35
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  ???
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    13 November 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Kalisapu
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 36 -->
+            <div class="bg-slate-200 rounded-lg shadow p-4 student-card">
+              <img alt="Portrait of a smiling woman wearing grey blazer and white shirt"
+                class="rounded-lg w-full object-cover mb-4" height="200" src="PHOTO X PPLG 1/36.png" width="300" />
+              <div class="flex justify-between items-start">
+                <div>
+                  <h2 class="font-semibold text-sm text-slate-900 student-name">
+                    Zaskia Az-Zahra
+                  </h2>
+                  <p class="text-xs text-slate-600">
+                    NISN: 3099195133
+                  </p>
+                </div>
+                <div>
+                  <span class="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    #36
+                  </span>
+                </div>
+              </div>
+              <ul class="mt-2 text-xs text-slate-600 space-y-1">
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  SMP Negeri 1 Tarub
+                </li>
+                <li>
+                  <i class="fas fa-heart text-blue-400 mr-1">
+                  </i>
+                  <a class="text-blue-600 hover:underline" href="#">
+                    11 November 2009
+                  </a>
+                </li>
+                <li>
+                  <i class="fas fa-heart text-slate-400 mr-1">
+                  </i>
+                  Karangmangu
+                </li>
+              </ul>
+            </div>
+          </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section id="gallery" class="section">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Gallery Kelas</h2>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar1.jpeg"
+            alt="Gambar1" />
+          </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar3.jpeg"
+            alt="Gambar2" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar5.png"
+            alt="Gambar3" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar4.jpeg"
+            alt="Gambar4" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar2.jpeg"
+            alt="Gambar5" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar6.jpeg"
+            alt="Gambar6" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar9.JPG"
+            alt="Gambar7" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar12.jpeg"
+            alt="Gambar8" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar8.JPG"
+            alt="Gambar9" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar10.jpeg"
+            alt="Gambar10" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar7.JPG"
+            alt="Gambar11" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar12.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar18.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar16.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar14.jpeg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar21.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar13.png"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar15.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar19.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar22.jpeg"
+            alt="PGambar12" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar20.jpeg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar23.JPG"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar28.jpg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar24.jpg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar26.jpg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar25.jpg"
+            alt="PGambar12" />
+        </div>
+         <div class="gallery-item">
+          <img
+            src="PHOTO X PPLG 1/gambar27.jpg"
+            alt="PGambar12" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Info -->
+  <section id="developer" class="section bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Info Developer</h2>
+    
+      
+    <!-- Tambahkan div ini sebagai flex container -->
+    <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+      <section class="bg-[#F7F9FC] rounded-xl max-w-sm w-full p-8 text-center">
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+        <img alt="P background" class="mx-auto rounded-full mb-4 w-[120px] h-[120px] object-cover" height="120" src="PHOTO X PPLG 1/23.png" width="120"/>
+        </div>
+        <h2 class="font-semibold text-[#1E293B] text-lg mb-1">
+          Muhamad Iqbal Faiz Dev.
+        </h2>
+        <p class="text-xs text-[#475569] mb-6">
+          X PPLG 1 - SMKN 1 SLAWl
+        </p>
+        <p class="font-semibold text-xs text-[#475569] mb-8 px-4">
+          Terus melakukan debugging pada hidup kita, agar terus maju. "Jangan berhenti dan terus Disiplin":).
+        </p>
+      </section>
+      <section class="bg-[#F7F9FC] rounded-xl max-w-sm w-full p-8 text-center"
+      >
+        <div class="card text-center p-6">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+        <img alt="nama" class="mx-auto rounded-full mb-4 w-[120px] h-[120px] object-cover" height="120" src="PHOTO X PPLG 1/37.png" width="120"/>
+        </div>
+        <h2 class="font-semibold text-[#1E293B] text-lg mb-1">
+          Muhammad Fakhri A.W. Dev.
+        </h2>
+        <p class="text-xs text-[#475569] mb-6">
+          X PPLG 1 - SMKN 1 SLAWl
+        </p>
+        <p class="font-semibold text-xs text-[#475569] mb-8 px-4">
+          Berhasil atau gagal,proses akan tetap berjalan,tidak ada kata menyerah sebelum semua mimpi itu tercapai.
+        </p>
+      </section>
+    </div>
+  </div>
+    </body>
+   </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">X PPLG 1</h3>
+          <p class="text-gray-400">SMKN 1 SLAWI<br>Jl.KH. Agus Salim No.1, Procot, Kec.Slawi, Kabupaten Tegal <br>Tegal, Jawa Tengah</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Kontak</h3>
+          <p class="text-gray-400">Email: -<br>Phone: 0283 491366</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <button class="text-gray-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+</svg></button>
+            <button class="text-gray-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+</svg></button>
+            <button class="text-gray-400 hover:text-white transition"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+</svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">© 2025 X PPLG 1 SMKN 1 SLAWI. All rights reserved.</p>
+      </div>
+    </div>
+    <div class="footer-waves">
+      <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+          .path-0{
+            animation:pathAnim-0 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pathAnim-0{
+            0%{
+              d: path("M 0,600 L 0,150 C 117.46411483253587,183.12918660287082 234.92822966507174,216.25837320574163 317,223 C 399.07177033492826,229.74162679425837 445.7511961722488,210.0956937799043 523,191 C 600.2488038277512,171.9043062200957 708.066985645933,153.35885167464116 818,149 C 927.933014354067,144.64114832535884 1039.980861244019,154.4688995215311 1144,157 C 1248.019138755981,159.5311004784689 1344.0095693779904,154.76555023923444 1440,150 L 1440,600 L 0,600 Z");
+            }
+            25%{
+              d: path("M 0,600 L 0,150 C 71.88516746411483,141.20574162679426 143.77033492822966,132.41148325358853 253,111 C 362.22966507177034,89.58851674641149 508.8038277511962,55.55980861244019 625,82 C 741.1961722488038,108.4401913875598 827.0143540669857,195.34928229665073 907,211 C 986.9856459330143,226.65071770334927 1061.1387559808613,171.04306220095694 1149,149 C 1236.8612440191387,126.95693779904306 1338.4306220095693,138.47846889952154 1440,150 L 1440,600 L 0,600 Z");
+            }
+            50%{
+              d: path("M 0,600 L 0,150 C 91.8468899521531,127.21531100478468 183.6937799043062,104.43062200956936 271,104 C 358.3062200956938,103.56937799043064 441.07177033492826,125.49282296650719 530,150 C 618.9282296650717,174.5071770334928 714.019138755981,201.5980861244019 823,189 C 931.980861244019,176.4019138755981 1054.8516746411483,124.11483253588517 1160,111 C 1265.1483253588517,97.88516746411483 1352.5741626794259,123.94258373205741 1440,150 L 1440,600 L 0,600 Z");
+            }
+            75%{
+              d: path("M 0,600 L 0,150 C 97.8468899521531,123.1578947368421 195.6937799043062,96.31578947368419 298,110 C 400.3062200956938,123.68421052631581 507.07177033492826,177.8947368421053 596,200 C 684.9282296650717,222.1052631578947 756.0191387559809,212.1052631578947 845,206 C 933.9808612440191,199.8947368421053 1040.8516746411483,197.68421052631578 1143,189 C 1245.1483253588517,180.31578947368422 1342.5741626794259,165.1578947368421 1440,150 L 1440,600 L 0,600 Z");
+            }
+            100%{
+              d: path("M 0,600 L 0,150 C 117.46411483253587,183.12918660287082 234.92822966507174,216.25837320574163 317,223 C 399.07177033492826,229.74162679425837 445.7511961722488,210.0956937799043 523,191 C 600.2488038277512,171.9043062200957 708.066985645933,153.35885167464116 818,149 C 927.933014354067,144.64114832535884 1039.980861244019,154.4688995215311 1144,157 C 1248.019138755981,159.5311004784689 1344.0095693779904,154.76555023923444 1440,150 L 1440,600 L 0,600 Z");
+            }
+          }</style><defs><linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%"><stop offset="5%" stop-color="#764ba2"></stop><stop offset="95%" stop-color="#9900ef"></stop></linearGradient></defs><path d="M 0,600 L 0,150 C 117.46411483253587,183.12918660287082 234.92822966507174,216.25837320574163 317,223 C 399.07177033492826,229.74162679425837 445.7511961722488,210.0956937799043 523,191 C 600.2488038277512,171.9043062200957 708.066985645933,153.35885167464116 818,149 C 927.933014354067,144.64114832535884 1039.980861244019,154.4688995215311 1144,157 C 1248.019138755981,159.5311004784689 1344.0095693779904,154.76555023923444 1440,150 L 1440,600 L 0,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><style>
+          .path-1{
+            animation:pathAnim-1 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pathAnim-1{
+            0%{
+              d: path("M 0,600 L 0,350 C 69.17703349282297,386.2105263157895 138.35406698564594,422.4210526315789 244,409 C 349.64593301435406,395.5789473684211 491.7607655502393,332.5263157894737 606,337 C 720.2392344497607,341.4736842105263 806.602870813397,413.4736842105263 886,423 C 965.397129186603,432.5263157894737 1037.8277511961724,379.5789473684211 1129,357 C 1220.1722488038276,334.4210526315789 1330.0861244019138,342.2105263157895 1440,350 L 1440,600 L 0,600 Z");
+            }
+            25%{
+              d: path("M 0,600 L 0,350 C 117.61722488038276,309.21531100478467 235.23444976076553,268.4306220095694 335,281 C 434.76555023923447,293.5693779904306 516.6794258373205,359.49282296650716 611,366 C 705.3205741626795,372.50717703349284 812.0478468899521,319.59808612440196 912,312 C 1011.9521531100479,304.40191387559804 1105.129186602871,342.1148325358851 1192,356 C 1278.870813397129,369.8851674641149 1359.4354066985645,359.9425837320574 1440,350 L 1440,600 L 0,600 Z");
+            }
+            50%{
+              d: path("M 0,600 L 0,350 C 87.65550239234452,320.8038277511962 175.31100478468903,291.60765550239233 284,312 C 392.68899521531097,332.39234449760767 522.4114832535885,402.3732057416268 609,399 C 695.5885167464115,395.6267942583732 739.043062200957,318.89952153110045 835,286 C 930.956937799043,253.10047846889955 1079.4162679425838,264.0287081339713 1189,282 C 1298.5837320574162,299.9712918660287 1369.2918660287082,324.9856459330143 1440,350 L 1440,600 L 0,600 Z");
+            }
+            75%{
+              d: path("M 0,600 L 0,350 C 94.69856459330146,361.2918660287081 189.3971291866029,372.5837320574163 281,387 C 372.6028708133971,401.4162679425837 461.11004784688987,418.95693779904303 544,390 C 626.8899521531101,361.04306220095697 704.1626794258375,285.58851674641147 820,295 C 935.8373205741625,304.41148325358853 1090.2392344497607,398.68899521531097 1200,422 C 1309.7607655502393,445.31100478468903 1374.8803827751196,397.6555023923445 1440,350 L 1440,600 L 0,600 Z");
+            }
+            100%{
+              d: path("M 0,600 L 0,350 C 69.17703349282297,386.2105263157895 138.35406698564594,422.4210526315789 244,409 C 349.64593301435406,395.5789473684211 491.7607655502393,332.5263157894737 606,337 C 720.2392344497607,341.4736842105263 806.602870813397,413.4736842105263 886,423 C 965.397129186603,432.5263157894737 1037.8277511961724,379.5789473684211 1129,357 C 1220.1722488038276,334.4210526315789 1330.0861244019138,342.2105263157895 1440,350 L 1440,600 L 0,600 Z");
+            }
+          }</style><defs><linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%"><stop offset="5%" stop-color="#764ba2"></stop><stop offset="95%" stop-color="#9900ef"></stop></linearGradient></defs><path d="M 0,600 L 0,350 C 69.17703349282297,386.2105263157895 138.35406698564594,422.4210526315789 244,409 C 349.64593301435406,395.5789473684211 491.7607655502393,332.5263157894737 606,337 C 720.2392344497607,341.4736842105263 806.602870813397,413.4736842105263 886,423 C 965.397129186603,432.5263157894737 1037.8277511961724,379.5789473684211 1129,357 C 1220.1722488038276,334.4210526315789 1330.0861244019138,342.2105263157895 1440,350 L 1440,600 L 0,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>
+  </footer>
+
+  <!-- Music Player   -->
+    <div class="music-player">
+        <div class="glass-effect p-4 rounded-full">
+            <audio id="bgMusic" loop autoplay>
+                <source src="Lagu 3.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="toggleMusic()" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Music control function
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const button = document.querySelector('.music-player button');
+            
+            if (music.paused) {
+                music.play();
+                button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                button.classList.add('bg-green-500');
+                button.classList.remove('bg-red-500');
+            } else {
+                music.pause();
+                button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                button.classList.add('bg-red-500');
+                button.classList.remove('bg-green-500');
+            }
+        }
+
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialize music button state
+        document.addEventListener('DOMContentLoaded', function() {
+            const music = document.getElementById('bgMusic');
+            const button = document.querySelector('.music-player button');
+            
+            music.volume = 0.3; // Set volume to 30%
+            
+            music.addEventListener('play', function() {
+                button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                button.classList.add('bg-green-500');
+                button.classList.remove('bg-red-500');
+            });
+            
+            music.addEventListener('pause', function() {
+                button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                button.classList.add('bg-red-500');
+                button.classList.remove('bg-green-500');
+            });
+        });
+      </script>
+ </body>
+</html>
